@@ -1,9 +1,8 @@
-import {useEffect} from 'react';
 import axios from 'axios';
 
-const Home = (props) => {
+const Home = ({shows}) => {
     
-    // console.log("TCL: Home -> props", props)
+     console.log("TCL: Home -> props", shows)
     
     // useEffect(() => {
 
@@ -19,10 +18,8 @@ const Home = (props) => {
 
 Home.getInitialProps = async () => {
     const response = await axios.get('http://api.tvmaze.com/schedule?country=US&date=2014-12-01')
-    console.log("TCL:Home.getInitialProps -> response", response.data)
-
     return {
-        test: 'testing'
+        shows: response.data
     }
 }
 
