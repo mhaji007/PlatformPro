@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Link from 'next/Link';
 import Thumbnail from '../../components/Thumbnail';
 
 const Home = ({shows}) => {
@@ -19,7 +20,22 @@ const Home = ({shows}) => {
     };
 
     return (
-    <ul className="tvshows">{renderShows()}</ul>
+    <ul className="tvshows-grid">
+        <Link href="/about">
+            <a> About </a>
+
+        </Link>
+        {renderShows()}
+        
+        <style jsx>{`
+					.tvshows-grid {
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 10px;
+					}
+				`}</style>
+        
+        </ul>
     )
 }
 
