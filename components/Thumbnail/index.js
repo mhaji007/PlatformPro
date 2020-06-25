@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import ThumbnailStyles from './styles';
 
-const Thumbnail = ({imageUrl = 'http://via.placeholder.com/210x295?text=?', caption}) => {
+const Thumbnail = ({imageUrl = 'http://via.placeholder.com/210x295?text=?', 
+caption,
+href='',
+as=''}) => {
     return (
         <div className="thumbnail"> 
-            <Link href="/[country]/[showId]" as="/us/5617">
+            <Link href= {href} as={as}>
             <a>
             <img src={imageUrl} className="thumbnail__image"/>
             <div className="thumbnail__caption">{caption}</div>
