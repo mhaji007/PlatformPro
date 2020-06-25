@@ -21,10 +21,6 @@ const Home = ({shows}) => {
 
     return (
     <ul className="tvshows-grid">
-        <Link href="/about">
-            <a> About </a>
-
-        </Link>
         {renderShows()}
         
         <style jsx>{`
