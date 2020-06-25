@@ -9,14 +9,24 @@ const Home = ({shows, country}) => {
           const {show} = showItem
         return (
 
-            <li key={index}>
+            <li className="tvshows-image" key={index}>
                 {/* {console.log(show.image)} */}
                 {/* {console.log(show.image.medium)} */}
-                <Thumbnail imageUrl={(show.image && show.image.medium) || undefined} 
+                <Thumbnail className="image" imageUrl={(show.image && show.image.medium) || undefined} 
                 caption={show.name}
                 href="/[country]/[showId]"
                 as={`/${country}/${show.id}`} />
                 {/* Once I include the above line I get the error */}
+
+                        
+        {/* <style jsx>{`
+					.tvshows-image {
+                        grid-column: span 2;
+                    }
+                    .tvshows-image:nth-last-child(1):nth-child(odd) {
+                        grid-column: 2 / span 2;
+                    }
+				`}</style> */}
             </li>
         );
       });
@@ -29,8 +39,8 @@ const Home = ({shows, country}) => {
         <style jsx>{`
 					.tvshows-grid {
 						display: grid;
-						grid-template-columns: 1fr 1fr;
-						gap: 10px;
+						grid-template-columns: repeat(2, 1fr);
+                        gap: 10px;
 					}
 				`}</style>
         
