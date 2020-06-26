@@ -2,6 +2,7 @@ import axios from 'axios';
 import Link from 'next/Link';
 import Thumbnail from '../../components/Thumbnail';
 
+
 const Home = ({shows, country}) => {
     
     const renderShows = () => {
@@ -10,13 +11,11 @@ const Home = ({shows, country}) => {
         return (
 
             <li className="tvshows-image" key={index}>
-                {/* {console.log(show.image)} */}
-                {/* {console.log(show.image.medium)} */}
                 <Thumbnail className="image" imageUrl={(show.image && show.image.medium) || undefined} 
                 caption={show.name}
                 href="/[country]/[showId]"
                 as={`/${country}/${show.id}`} />
-                {/* Once I include the above line I get the error */}
+  
 
                         
         {/* <style jsx>{`
