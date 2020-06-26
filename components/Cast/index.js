@@ -5,7 +5,7 @@ const Cast = ({cast}) => {
     
     const renderCast = () => {
         return cast.map((castItem, index) => {
-            const {image, name} = castItem;
+            const {image, name} = castItem.person;
             return (
                 <li key={index}>
                     <Thumbnail imageUrl={(image && image.medium) || undefined}
@@ -22,6 +22,14 @@ const Cast = ({cast}) => {
             <ul className="cast__list">
                 {renderCast()}
             </ul>
+            <style jsx> {`
+            .cast__list {
+                pading:0;
+                margin:0;
+                list-style-type:none;
+                display:flex;
+            }
+            `}</style>
         </div>
     );
 };
