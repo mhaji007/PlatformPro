@@ -1,3 +1,13 @@
+// Header is a component that lies
+// outisde the page folder and as such
+// does not have access to the query route
+// parameter. In order to access route
+// parameters we need to import useRouter
+
+import {useRouter} from 'next/router';
+
+
+
 const countries = [{
     label: 'us',
     name: 'United States'
@@ -10,7 +20,8 @@ const countries = [{
 
 const Header = () => {
 
-    
+    const router = useRouter();
+
         const handleChange = (e) => {
             console.log('selected country: ', e.target.value);
         
@@ -26,7 +37,9 @@ const Header = () => {
     return (
         <div className="header">
             
-        <select onChange={handleChange}>
+        <select
+        value={router.query.country}
+        onChange={handleChange}>
             {renderCountries()}
         </select>
 
