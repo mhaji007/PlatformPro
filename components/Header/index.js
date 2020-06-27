@@ -5,7 +5,7 @@
 // parameters we need to import useRouter
 
 import {useRouter} from 'next/router';
-
+import {useState} from 'react';
 
 
 const countries = [{
@@ -19,12 +19,12 @@ const countries = [{
 
 
 const Header = () => {
-
     const router = useRouter();
+    const [selectedCountry, setSelectedCountry] = useState(router.query.country);
 
         const handleChange = (e) => {
             console.log('selected country: ', e.target.value);
-        
+            setSelectedCountry(e.target.value);
     }
 
     const renderCountries = () => {
@@ -38,7 +38,7 @@ const Header = () => {
         <div className="header">
             
         <select
-        value={router.query.country}
+        value={selectedCountry}
         onChange={handleChange}>
             {renderCountries()}
         </select>
@@ -62,3 +62,5 @@ const Header = () => {
 }
 
 export default Header;
+
+
