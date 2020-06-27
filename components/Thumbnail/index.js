@@ -18,7 +18,6 @@ small = false}) => {
         <style jsx>
             {`.thumbnail__image {
                 width: ${small?'100px':'100%'};
-                margin-right:10px
             }
             .thumbnail__caption {
                 text-align:center;

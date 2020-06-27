@@ -31,6 +31,9 @@ const Cast = ({cast}) => {
                 list-style-type:none;
                 display:flex;
             }
+            .cast__list > :global(li) {
+                margin-right: 10px;
+            }
             `}</style>
         </div>
     );
