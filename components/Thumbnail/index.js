@@ -4,7 +4,8 @@ import ThumbnailStyles from './styles';
 const Thumbnail = ({imageUrl = 'http://via.placeholder.com/210x295?text=?', 
 caption,
 href='',
-as=''}) => {
+as='',
+small = false}) => {
     return (
         <div className="thumbnail"> 
             <Link href= {href} as={as}>
@@ -15,7 +16,16 @@ as=''}) => {
             </Link>
 
         <style jsx>
-            {ThumbnailStyles}
+            {`.thumbnail__image {
+                width: ${small?'100px':'100%'};
+                margin-right:10px
+            }
+            .thumbnail__caption {
+                text-align:center;
+                padding: 10px;
+                }
+
+            `}
        </style>
         </div>
 
