@@ -15,7 +15,7 @@ const ShowDetails = ({show}) => {
             <h1>{name}</h1>
             {parse(summary)}
 
-            <Cast cast={_embedded.cast}/>
+          {_embedded.cast.length>0 && <Cast cast={_embedded.cast}/>}
 
         <style jsx> {`
         .show-details__poster {
@@ -28,8 +28,9 @@ const ShowDetails = ({show}) => {
 
 };
 
-ShowDetails.getInitialProps = async() => {
-    const response = await axios.get('http://api.tvmaze.com/shows/1?embed=cast')
+ShowDetails.getInitialProps = async({query}) => {
+    const {showId} = query;
+    const response = await axios.get(`http://api.tvmaze.com/shows/${showId}?embed=cast`)
 
     return {
         show: response.data
