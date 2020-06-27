@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Link from 'next/Link';
 import Thumbnail from '../../components/Thumbnail';
+import Header from '../../components/Header';
 
 
 const Home = ({shows, country}) => {
@@ -32,6 +33,8 @@ const Home = ({shows, country}) => {
     };
 
     return (
+<div className="home">
+    <Header/>
     <ul className="tvshows-grid">
         {renderShows()}
         
@@ -40,10 +43,14 @@ const Home = ({shows, country}) => {
 						display: grid;
 						grid-template-columns: repeat(2, 1fr);
                         gap: 10px;
+                        padding:0;
+                        margin:0;
+                        list-style-type:none;
 					}
 				`}</style>
         
         </ul>
+    </div>
     )
 }
 
