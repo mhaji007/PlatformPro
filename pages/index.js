@@ -1,3 +1,10 @@
+// When user lands on this page
+// They should be redirected  to /[country]
+// We need two different strategies
+// based on whether we are in
+// browser or on the server
+
+
 import Router from 'next/router';
  
  const Home = () => {
@@ -13,7 +20,7 @@ Home.getInitialProps = (context) => {
 
   const country = context.query.country || 'us';
 
-
+  // Check to se whether we are in browser
   process.browser ?
   Router.replace('/[country]', `${country}`):
   context.res.writeHeader(302, {Location: `/${country}`});
