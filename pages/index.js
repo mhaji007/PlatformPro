@@ -1,12 +1,24 @@
-
+import React from 'react';
+ 
  const Home = () => {
   return (
-    <div>
-      This is my Home Page
-    </div>
+    <h1>
+      This is my Home Page {process.browser}
+    </h1>
     )
 
 }
 
-export default Home
+Home.getInitialProps = () => {
+
+  console.log('browser', process.browser);
+
+  return {
+    test: 'testing'
+  }
+}
+
+export default Home;
+
+
 
