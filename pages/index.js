@@ -1,4 +1,4 @@
-import React from 'react';
+import Router from 'next/router';
  
  const Home = () => {
   return (
@@ -9,13 +9,21 @@ import React from 'react';
 
 }
 
-Home.getInitialProps = () => {
+Home.getInitialProps = (context) => {
 
-  console.log('browser', process.browser);
+  const country = context.query.country || 'us';
 
-  return {
-    test: 'testing'
-  }
+
+  process.browser ?
+  Router.replace('/[country]', `${country}`):
+  context.res.writeHeader(302, {Location: `/${country}`});
+
+  // Tell server we are finished
+  context.res.end();
+
+  // return {
+  //   test: 'testing'
+  // }
 }
 
 export default Home;
