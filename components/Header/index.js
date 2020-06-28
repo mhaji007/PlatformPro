@@ -23,8 +23,12 @@ const Header = () => {
     const [selectedCountry, setSelectedCountry] = useState(router.query.country);
 
         const handleChange = (e) => {
-            console.log('selected country: ', e.target.value);
+            //console.log('selected country: ', e.target.value);
             setSelectedCountry(e.target.value);
+            // if the first parameter in the push method
+            // is not specified the data will be fetched
+            // from the server
+            router.push(`/[country]`,`/${e.target.value}`); 
     }
 
     const renderCountries = () => {
@@ -42,9 +46,6 @@ const Header = () => {
         onChange={handleChange}>
             {renderCountries()}
         </select>
-
-
-
 
             <style jsx>{`
                 .header {
