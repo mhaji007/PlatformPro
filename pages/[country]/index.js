@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Link from 'next/Link';
 import Thumbnail from '../../components/Thumbnail';
 import Error from 'next/error';
 
