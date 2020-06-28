@@ -42,9 +42,7 @@ const Home = ({shows, country}) => {
 						display: grid;
 						grid-template-columns: repeat(2, 1fr);
                         gap: 10px;
-                        padding:0;
-                        margin:0;
-                        list-style-type:none;
+
 					}
 				`}</style>
         

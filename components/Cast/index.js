@@ -26,9 +26,6 @@ const Cast = ({cast}) => {
             <style jsx> {`
             .cast__list {
                 overflow-x:scroll;
-                pading:0;
-                margin:0;
-                list-style-type:none;
                 display:flex;
             }
             .cast__list > :global(li) {
