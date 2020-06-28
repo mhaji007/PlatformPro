@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Link from 'next/Link';
 import Thumbnail from '../../components/Thumbnail';
-import Header from '../../components/Header';
+
 
 
 const Home = ({shows, country}) => {
@@ -34,7 +34,6 @@ const Home = ({shows, country}) => {
 
     return (
 <div className="home">
-    <Header/>
     <ul className="tvshows-grid">
         {renderShows()}
         
