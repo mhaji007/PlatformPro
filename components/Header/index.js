@@ -5,7 +5,8 @@
 // parameters we need to import useRouter
 
 import {useRouter} from 'next/router';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import cookies from 'nookies';
 
 
 const countries = [{
@@ -31,12 +32,26 @@ const Header = () => {
             router.push(`/[country]`,`/${e.target.value}`); 
     }
 
+    // Now control shifts to useEffect to set a cookie for
+    // the selected/changed country
+
     const renderCountries = () => {
         return countries.map(country => {
             return (<option value={country.label}>{country.name} </option>
         )
         })
     }
+
+    // Whenever a country is selected or a selected country 
+    // changes (right after calling handlechange)
+    // use the following effect
+    useEffect(() => {
+        // No context on serverside hence null as the first value
+        cookies.set(null,'defaultCountry', selectedCountry, {
+            maxAge: 30*24*60*60,
+            path: '/'
+        })
+    }, [selectedCountry])
 
     return (
         <div className="header">
