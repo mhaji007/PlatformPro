@@ -1,7 +1,10 @@
 import axios from 'axios';
 import parse from 'html-react-parser';
 import Cast from '../../components/Cast';
+// the default error handling page
 import Error from 'next/error';
+// //Custom error
+// import CustomError from '../_error'
 
 
 const ShowDetails = ({show = {}, statusCode}) => {
@@ -9,8 +12,9 @@ const ShowDetails = ({show = {}, statusCode}) => {
     const {name, image, summary, _embedded} = show;
     
     if (statusCode) {
-       
-        return <Error statusCode={statusCode} title="There was a problem"/>
+       // default error
+        return <Error statusCode={statusCode}/>
+        // return <h1> There was an error </h1>
     }
 
 
