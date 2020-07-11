@@ -6,7 +6,8 @@
 
 
 import Router from 'next/router';
- 
+import cookies from 'nookies';
+
  const Home = () => {
   return (
     <h1>
@@ -18,7 +19,13 @@ import Router from 'next/router';
 
 Home.getInitialProps = (context) => {
 
-  const country = context.query.country || 'us';
+  const {defaultCountry} = cookies.get(context);
+  // if no default country is obtained from browsser first check cookies 
+  // if there were no cookies, only then falls back to us
+  const country = context.query.country || defaultCountry || "us"
+
+  // if not default country is obtained from browser fall back to us
+  // const country = context.query.country || 'us';
 
   // Check to se whether we are in browser
   process.browser ?
