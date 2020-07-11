@@ -12,6 +12,16 @@ class MyApp extends App {
             <Component {...pageProps} />
 
             <style jsx global>{`
+
+                @font-face{
+                    font-family: 'raleway';
+                    src:url('/fonts/raleway/Raleway-Medium.ttf') format('truetype');
+                }
+
+                html {
+                    font-family: 'raleway';
+                }
+
                 ul {
                     padding: 0;
                     margin:0;

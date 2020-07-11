@@ -2,10 +2,7 @@ import axios from 'axios';
 import Thumbnail from '../../components/Thumbnail';
 import Error from 'next/error';
 import cookies from 'nookies';
-<<<<<<< HEAD
-=======
 
->>>>>>> 59c106c9b72e3487a09f4e03bcc6bbe7a618221b
 
 
 
