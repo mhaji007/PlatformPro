@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import Cast from '../../components/Cast';
 // the default error handling page
 import Error from 'next/error';
+import {withAuthorization} from '../../utils/withAuthorization.js';
 // //Custom error
 // import CustomError from '../_error'
 
