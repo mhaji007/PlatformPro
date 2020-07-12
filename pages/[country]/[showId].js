@@ -7,6 +7,7 @@ import Error from 'next/error';
 // import CustomError from '../_error'
 
 
+
 const ShowDetails = ({show = {}, statusCode}) => {
 
     const {name, image, summary, _embedded} = show;
@@ -56,4 +57,4 @@ ShowDetails.getInitialProps = async({query}) => {
 }
 }
 
-export default ShowDetails;
+export default withAuthorization(ShowDetails);
