@@ -11,22 +11,45 @@ class MyApp extends App {
             <Header/>
             <Component {...pageProps} />
 
-            <style jsx global>{`
+            <style global>{`
 
                 @font-face{
                     font-family: 'raleway';
                     src:url('/fonts/raleway/Raleway-Medium.ttf') format('truetype');
                 }
 
-                html {
+                :global (html) {
                     font-family: 'raleway';
                 }
 
-                ul {
+                :global(ul) {
                     padding: 0;
-                    margin:0;
-                    list-style-type:none;
-                    }
+                    margin: 0;
+                    list-style-type: none;
+                }
+                :global(form) {
+                    display: flex;
+                    with: 100%;
+                    flex-direction: column;
+                    text-align: center;
+                }
+                :global(input) {
+                    margin-bottom: 10px;
+                    padding: 10px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                :global(button) {
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                    background-color: green;
+                    color: #fff;
+                }
+                :global(.error) {
+                    color: red;
+                    padding-bottom: 10px;
+                }
                 `}
             </style>
                     </>
