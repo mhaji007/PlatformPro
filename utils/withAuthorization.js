@@ -17,6 +17,13 @@ const authenticate = context => {
     return token;
 }
 
+const isAuthenticated = context => {
+    const {token} = cookies.get(context);
+
+    return token;
+};
+
+
 const withAuthorization = (WrappedComponent) => {
     return class extends Component {
         static async getInitialProps(context) {
@@ -33,4 +40,4 @@ const withAuthorization = (WrappedComponent) => {
 
 }
 
-export {withAuthorization};
+export {withAuthorization, isAuthenticated};

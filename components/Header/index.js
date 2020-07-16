@@ -6,7 +6,9 @@
 
 import {useRouter} from 'next/router';
 import {useState, useEffect} from 'react';
+import Link from 'next/link';
 import cookies from 'nookies';
+import {isAuthenticated} from '../../utils/withAuthorization';
 
 
 const countries = [{
@@ -38,19 +40,25 @@ const Header = () => {
     const renderCountries = () => {
         return countries.map(country => {
             return (<option value={country.label}>{country.name} </option>
-        )
-        })
+          );
+        });
+    };
+
+    const handleSignout = () => {
+        cookies.destroy(null, 'token');
     }
 
     // Whenever a country is selected or a selected country 
     // changes (right after calling handlechange)
     // use the following effect
     useEffect(() => {
+        if (selectedCountry) {
         // No context on serverside hence null as the first value
-        cookies.set(null,'defaultCountry', selectedCountry, {
+        cookies.set(null,'defa;ultCountry', selectedCountry, {
             maxAge: 30*24*60*60,
             path: '/'
-        })
+        });
+    }
     }, [selectedCountry])
 
     return (
@@ -62,6 +70,13 @@ const Header = () => {
             {renderCountries()}
         </select>
 
+        {isAuthenticated()&& (
+        <Link href="/us">
+            <a onClick={handleSignout} >
+                Sign out
+            </a>
+        </Link>)}
+
             <style jsx>{`
                 .header {
                     padding: 20px;
@@ -69,7 +84,13 @@ const Header = () => {
                     color:#fff;
                     text-align:center;
                     margin-bottom: 10px;
+                    display: flex;
+                    justify-content: space-between;
 
+                }
+
+                .header > :global(a) {
+                    color:#fff;
                 }
             
             `}
