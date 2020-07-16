@@ -8,7 +8,7 @@ const authenticate = context => {
     // on serverside
     if (context.req && !token) {
         context.res.writeHead(302, {location:'/signin'});
-        context.end();
+        context.res.end();
     }
 
     if (!token) {
