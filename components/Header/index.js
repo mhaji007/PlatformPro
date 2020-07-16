@@ -71,7 +71,7 @@ const Header = () => {
         </select>
 
         {isAuthenticated()&& (
-        <Link href="/us">
+        <Link href="/[country]" as="/us">
             <a onClick={handleSignout} >
                 Sign out
             </a>
