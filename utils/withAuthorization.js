@@ -6,8 +6,9 @@ const authenticate = context => {
     const {token} = cookies.get(context);
 
     cookies.set(context, 'plannedRoute', 
-    JSON.stringify({as: context.asPath, href: context.pathname}, {path:'/'})
-    )
+    JSON.stringify({as: context.asPath, href: context.pathname}
+    ), {path:'/'}
+    );
 
     // Check if cookie is present 
     // on serverside

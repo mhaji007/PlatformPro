@@ -32,7 +32,7 @@ const Signin = () => {
 			const response = await axios.post(
 				'https://iwallet-api.herokuapp.com/api/auth/signin',
 				{ ...signinInfo }
-			);
+            );
 
 			cookies.set(null, 'token', response.data.token, { path: '/' });
 			const { plannedRoute } = cookies.get();
