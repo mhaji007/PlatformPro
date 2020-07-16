@@ -18,35 +18,35 @@ class MyApp extends App {
                     src:url('/fonts/raleway/Raleway-Medium.ttf') format('truetype');
                 }
 
-                :global (html) {
+                 html {
                     font-family: 'raleway';
                 }
 
-                :global(ul) {
+                ul {
                     padding: 0;
                     margin: 0;
                     list-style-type: none;
                 }
-                :global(form) {
+                form {
                     display: flex;
                     with: 100%;
                     flex-direction: column;
                     text-align: center;
                 }
-                :global(input) {
+                input {
                     margin-bottom: 10px;
                     padding: 10px;
                     width: 100%;
                     box-sizing: border-box;
                 }
-                :global(button) {
+                button {
                     padding: 10px;
                     margin-bottom: 10px;
                     cursor: pointer;
                     background-color: green;
                     color: #fff;
                 }
-                :global(.error) {
+                .error {
                     color: red;
                     padding-bottom: 10px;
                 }
