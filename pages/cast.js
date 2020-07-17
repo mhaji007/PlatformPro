@@ -1,7 +1,17 @@
-const CastMemeberDetails = () => {
-    return <h1> Cast member details </h1>
+import axios from 'axios';
 
-}
+const CastMemberDetails = props => {
+	return <img src={props.person.image.medium} />;
+};
 
-export default CastMemeberDetails;
+CastMemberDetails.getInitialProps = async ({ query }) => {
+	const response = await axios.get(
+		`https://api.tvmaze.com/people/${query.personId}`
+	);
 
+	return {
+		person: response.data
+	};
+};
+
+export default CastMemberDetails;
