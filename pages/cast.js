@@ -1,5 +1,5 @@
 const CastMemeberDetails = () => {
-    return <h1> Cast memver details </h1>
+    return <h1> Cast member details </h1>
 
 }
 
